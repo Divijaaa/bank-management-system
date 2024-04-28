@@ -1,0 +1,85 @@
+mysql> select * from bank;
++--------+------+--------------+-------------------+--------+---------+
+| name   | code | main_address | bank_email        | job_id | cust_id |
++--------+------+--------------+-------------------+--------+---------+
+| Bank A |    1 | Main St      | bankA@example.com |      1 |    NULL |
+| Bank B |    2 | First St     | bankB@example.com |      2 |    NULL |
+| Bank C |    3 | Second St    | bankC@example.com |      3 |    NULL |
+| Bank D |    4 | Third St     | bankD@example.com |      4 |    NULL |
+| Bank E |    5 | Fourth St    | bankE@example.com |      5 |    NULL |
++--------+------+--------------+-------------------+--------+---------+
+5 rows in set (0.01 sec)
+
+mysql> select * from branch;
++-----------+------------+----------+--------------+--------+---------+---------+
+| branch_id | phone_no   | name     | address      | job_id | bank_id | cust_id |
++-----------+------------+----------+--------------+--------+---------+---------+
+|         1 | 1234567890 | Branch 1 | 123 Main St  |      1 |       1 |    NULL |
+|         2 | 9876543210 | Branch 2 | 456 Elm St   |      2 |       1 |    NULL |
+|         3 | 1112223334 | Branch 3 | 789 Oak St   |      3 |       1 |    NULL |
+|         4 | 5554443332 | Branch 4 | 012 Pine St  |      4 |       2 |    NULL |
+|         5 | 9998887776 | Branch 5 | 345 Maple St |      5 |       3 |    NULL |
++-----------+------------+----------+--------------+--------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee;
++--------+----------+-------------------+------------------+------------+---------+----------+-----------+
+| job_id | salary   | job_type          | name_of_employee | hire_date  | dept_no | username | password  |
++--------+----------+-------------------+------------------+------------+---------+----------+-----------+
+|      1 | 50000.00 | Manager           | John Doe         | 2022-01-01 |       1 | emp1     | password1 |
+|      2 | 60000.00 | Assistant Manager | Jane Smith       | 2022-02-01 |       2 | emp2     | password2 |
+|      3 | 70000.00 | Teller            | Mike Johnson     | 2022-03-01 |       3 | emp3     | password3 |
+|      4 | 80000.00 | Accountant        | Emily Brown      | 2022-04-01 |       4 | emp4     | password4 |
+|      5 | 90000.00 | Customer Service  | David Wilson     | 2022-05-01 |       5 | emp5     | password5 |
++--------+----------+-------------------+------------------+------------+---------+----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from customer;
++---------+--------------+------------+------------------+-------------------+----------+-----------+--------------+
+| cust_id | name_of_cust | phone_no   | customer_address | customer_mail     | username | password  | bank_name    |
++---------+--------------+------------+------------------+-------------------+----------+-----------+--------------+
+|       1 | John Doe     | 1234567890 | 123 Main St      | john@example.com  | cust1    | password1 | Bank A       |
+|       2 | Jane Smith   | 9876543210 | 456 Elm St       | jane@example.com  | cust2    | password2 | Bank B       |
+|       3 | Mike Johnson | 1112223334 | 789 Oak St       | mike@example.com  | cust3    | password3 | Bank C       |
+|       4 | Emily Brown  | 5554443332 | 012 Pine St      | emily@example.com | cust4    | password4 | Bank D       |
+|       5 | David Wilson | 9998887776 | 345 Maple St     | david@example.com | cust5    | password5 | Bank E       |
+|      12 | rinki        | 4567890123 | goa              | rinki@mail.com    | customer | customer  | Default Bank |
+|      14 | Daisy        | 1234567890 | Boston           | daisy@gamil.com   | customer | customer  | Bank A       |
++---------+--------------+------------+------------------+-------------------+----------+-----------+--------------+
+7 rows in set (0.01 sec)
+
+mysql> select * from account;
++------------+---------------+----------+--------+---------+
+| account_id | acc_type      | balance  | status | cust_id |
++------------+---------------+----------+--------+---------+
+|          1 | Savings       |  5000.00 | Active |       1 |
+|          2 | Checking      |  3000.00 | Active |       2 |
+|          3 | Fixed Deposit | 10000.00 | Active |       3 |
+|          4 | Loan          | -5000.00 | Active |       4 |
+|          5 | Investment    | 20000.00 | Active |       5 |
++------------+---------------+----------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from loan;
++---------+-----------+----------+---------------+---------+
+| loan_id | loan_type | amount   | interest_rate | cust_id |
++---------+-----------+----------+---------------+---------+
+|       1 | Personal  | 10000.00 |          5.00 |       1 |
+|       2 | Home      | 20000.00 |          4.50 |       2 |
+|       3 | Car       | 15000.00 |          6.00 |       3 |
+|       4 | Business  | 30000.00 |          7.50 |       4 |
+|       5 | Education | 25000.00 |          3.50 |       5 |
++---------+-----------+----------+---------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from transactions;
++----------------+------------+---------+-----------+-------------+---------+
+| transaction_id | type       | amount  | sender_id | receiver_id | cust_id |
++----------------+------------+---------+-----------+-------------+---------+
+|              1 | Deposit    | 1000.00 |         1 |           2 |       1 |
+|              2 | Withdrawal |  500.00 |         2 |           1 |       1 |
+|              3 | Transfer   |  200.00 |         1 |           3 |       1 |
+|              4 | Payment    |  300.00 |         3 |           2 |       2 |
+|              5 | Withdrawal |  200.00 |         2 |           3 |       2 |
++----------------+------------+---------+-----------+-------------+---------+
+5 rows in set (0.00 sec)
